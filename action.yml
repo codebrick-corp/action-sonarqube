@@ -25,6 +25,9 @@ inputs:
   lintReport:
     description: "Path to lint report json file. https://docs.sonarqube.org/pages/viewpage.action?pageId=11639183"
     required: false
+  golangciLintReport:
+    description: "Path to lint report xml file. https://docs.sonarqube.org/latest/analysis/external-issues/"
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'

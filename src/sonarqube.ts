@@ -66,6 +66,7 @@ export default class Sonarqube {
     projectName: string
     projectBaseDir: string
     lintReport: string
+    golangciLintReport: string
   }
 
   constructor(repo: { owner: string; repo: string }) {
@@ -133,6 +134,10 @@ export default class Sonarqube {
       this.project.lintReport
         ? `-Dsonar.eslint.reportPaths=${this.project.lintReport}`
         : ''
+    } ${
+      this.project.golangciLintReport
+        ? `-Dsonar.go.golangci-lint.reportPaths=${this.project.golangciLintReport}`
+        : ''
     }`
 
   public getStatus = async (): Promise<ProjectStatus | null> => {
@@ -161,6 +166,7 @@ export default class Sonarqube {
         : `${repo.owner}-${repo.repo}`,
       projectBaseDir: getInput('projectBaseDir'),
       lintReport: getInput('lintReport'),
+      golangciLintReport: getInput('golangciLintReport'),
     },
     host: getInput('host'),
     token: getInput('token'),
