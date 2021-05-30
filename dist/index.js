@@ -10831,7 +10831,7 @@ class Sonarqube {
             ? `-Dsonar.eslint.reportPaths=${this.project.lintReport}`
             : ''} ${this.project.golangciLintReport
             ? `-Dsonar.go.golangci-lint.reportPaths=${this.project.golangciLintReport}`
-            : ''}`;
+            : ''} ${this.project.flags ? this.project.flags : ''}`;
         this.getStatus = async () => {
             const response = await this.http.get(`/api/qualitygates/project_status?projectKey=${this.project.projectKey}`);
             if (response.status !== 200 || !response.data) {
@@ -10851,6 +10851,7 @@ class Sonarqube {
                 projectBaseDir: core_1.getInput('projectBaseDir'),
                 lintReport: core_1.getInput('lintReport'),
                 golangciLintReport: core_1.getInput('golangciLintReport'),
+                flags: core_1.getInput('flags')
             },
             host: core_1.getInput('host'),
             token: core_1.getInput('token'),

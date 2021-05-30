@@ -26,7 +26,10 @@ inputs:
     description: "Path to lint report json file. https://docs.sonarqube.org/pages/viewpage.action?pageId=11639183"
     required: false
   golangciLintReport:
-    description: "Path to lint report xml file. https://docs.sonarqube.org/latest/analysis/external-issues/"
+    description: "Path to golangci-lint report xml file. https://docs.sonarqube.org/latest/analysis/external-issues/"
+    required: false
+  flags:
+    description: "Any Sonarqube flags which will following the end of the command"
     required: false
 runs:
   using: 'docker'

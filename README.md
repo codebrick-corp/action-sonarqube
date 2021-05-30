@@ -45,6 +45,7 @@ with:
     projectName: "my-custom-project-name"
     projectBaseDir: "/path/to/my-custom-project"
     lintReport:  "/path/to/lint-report-json" # https://docs.sonarqube.org/pages/viewpage.action?pageId=11639183
+    golangciLintReport: "/path/to/golangci-lint-report-xml" # https://docs.sonarqube.org/latest/analysis/external-issues/
 ```
 
 ## Roadmap
